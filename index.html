@@ -14,27 +14,70 @@
         font-weight: normal;
       }
       .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
-      .remark-slide-content { vertical-align: middle; font-size: 35px;}
+      .remark-slide-content { font-size: 3rem; padding: 1em 2em}
       .red { color: red;}
 
       .important-bit pre code, #the-important-bit + pre code { font-size: 35px }
+      .remark-slide-number { font-size: 14px;}
     </style>
   </head>
   <body>
     <textarea id="source">
-
-class: center, top
-
 # What is #serverless, even?
 ### with Pam Selle, @pamasaur thewebivore.com
 
 ---
-class: center, top
-
-Slides at [pselle.github.io/what-is-serverless](http://pselle.github.io/what-is-serverless)
+# What is serverless, even?
+---
+# Running your code in the cloud, but not giving a #$@* about servers
 
 ---
+What if _the cloud_ is someone's computer?
+---
+It is!
 
+![no cloud](images/no-cloud.png)
+---
+_However_
+---
+What if you don't care about the computer you run on
+---
+What if that computer "just" runs your code on demand?
+---
+
+# Enter: FaaS
+
+(Functions as a Service)
+
+---
+# FaaS options
+
+- AWS Lambda
+- Google Cloud Functions
+- Azure Functions
+- IBM OpenWhisk
+
+---
+# #serverless ≈ FaaS ~ Lambda
+---
+
+Serverless tends towards the architecture,
+FaaS/Lambda tends towards the execution
+
+---
+Getting Started
+----
+Let's use AWS
+---
+## Tools
+
+- [Serverless](http://serverless.com/)
+- [Apex](http://apex.run/)
+- Enthusiastically constructed gulp files
+---
+Slides at
+[pselle.github.io/what-is-serverless](http://pselle.github.io/what-is-serverless)
+---
 class: center, top
 
 # Thank you!
