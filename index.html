@@ -13,10 +13,12 @@
         font-family: 'Yanone Kaffeesatz';
         font-weight: normal;
       }
+      img { max-width: 100%}
+      .smaller.remark-slide-content {font-size: 2.5rem}
       .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
       .remark-slide-content { font-size: 3rem; padding: 1em 2em}
       .red { color: red;}
-
+      .remark-code {font-size: 1.3rem;}
       .important-bit pre code, #the-important-bit + pre code { font-size: 35px }
       .remark-slide-number { font-size: 14px;}
     </style>
@@ -25,17 +27,18 @@
     <textarea id="source">
 # What is #serverless, even?
 ### with Pam Selle, @pamasaur thewebivore.com
+---
+![IOpipe logo](images/iopipe.png)
 
+https://iopipe.com
+???
+Analytics and distributed tracing service. Sign up!
 ---
 # What is serverless, even?
 ---
 # Running your code in the cloud, but not giving a #$@* about servers
 
 ---
-What if _the cloud_ is someone's computer?
----
-It is!
-
 ![no cloud](images/no-cloud.png)
 ---
 _However_
@@ -56,25 +59,89 @@ What if that computer "just" runs your code on demand?
 - Google Cloud Functions
 - Azure Functions
 - IBM OpenWhisk
+- Webtask.io
 
+---
+class: smaller
+## Backstory
+
+AWS released Lambda in 2014, considered groundbreaking:
+
+- New pricing model (usage vs monthly billing)
+- Functions scale out of the box
+---
+## How's it work?
+
+Containers and stuff!
+
+---
+class: smaller
+## Pricing
+
+First *1 million requests per month are free*
+
+$0.20/1MM after ($0.0000002 per request)
 ---
 # #serverless ≈ FaaS ~ Lambda
 ---
 
 Serverless tends towards the architecture,
 FaaS/Lambda tends towards the execution
+---
+# Anatomy of a Lambda Function
+---
+```javascript
+console.log('starting function')
+exports.handler = function(event, context, callback) {
+  console.log('processing event: %j', event)
+  // callback(error, success)
+  callback(null, { hello: 'world' })
+  // context.fail()
+  // context.succeed()
+}
+
+```
+---
+## Invoking Lambda functions
+
+- API Gateway
+- SNS (ex. web hooks)
+- Cloudwatch Schedule
+- Alexa
+- S3
+- Dynamo
+- ... and more
 
 ---
-Getting Started
-----
-Let's use AWS
+![boo Lambda UI](images/lambda-init.png)
 ---
+class: smaller
 ## Tools
 
-- [Serverless](http://serverless.com/)
+- [Serverless (formerly JAWS) framework](http://serverless.com/)
 - [Apex](http://apex.run/)
+- [Shep](https://github.com/bustlelabs/shep)
 - Enthusiastically constructed gulp files
+
+???
+Serverless is a "framework," it's popular
+Apex is faster and gets out of my way
+
 ---
+# Make your own!
+`apex init`
+
+???
+Demo
+---
+class: smaller
+## Recent project
+
+[Turing-IncomTWEET](https://github.com/turing-incomplete/turing-incomtweet)
+
+Auto-schedules our episode tweets to Buffer so I don't have to log into Tweetdeck
+---
+class: smaller
 Slides at
 [pselle.github.io/what-is-serverless](http://pselle.github.io/what-is-serverless)
 ---
@@ -82,7 +149,11 @@ class: center, top
 
 # Thank you!
 
-### @pamasaur | thewebivore.com
+### [@pamasaur](https://twitter.com/pamasaur)
+
+### [thewebivore.com](http://thewebivore.com)
+
+### [IOpipe](https://iopipe.com)
 
 ### [turing.cool](http://turing.cool) | [JavaScript Air](https://javascriptair.com/)
     </textarea>
